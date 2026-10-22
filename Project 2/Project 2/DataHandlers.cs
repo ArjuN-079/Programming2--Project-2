@@ -13,7 +13,7 @@ namespace Project_2
         {
             string json = File.ReadAllText("question.json");
 
-            Question question = JsonSerializer.Deserialize<Question>(json);
+           // Question question = JsonSerializer.Deserialize<Question>(json);
         }
     }
     

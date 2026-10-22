@@ -3,31 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 
 namespace Project_2
 {
-    public class Player
+    public class Player :Person // add in person.cs (name and job)
         //fields
     {
-        private string name;
-        private int age;
-        private string hobbies;
-        private string job;
+        private List<int> age;
+        private List<string> hobbies;
 
-        //constructor
-        public Player(string name,int age,string hobbies,string job)
+        // constructor
+
+        public Player(List<int> age, List<string> hobbies, string name, string job): base(name,job)
         {
-            this.name = name;
             this.age = age;
             this.hobbies = hobbies;
-            this.job = job;
-            
         }
 
         //encapsulation {but still use field}
-        public string Name { get => name; set => name = value; }
-        public int Age { get => age; set => age = value; }
-        public string Hobbies { get => hobbies; set => hobbies = value; }
-        public string Job { get => job; set => job = value; }
+
+        public List<int> Age { get => age; set => age = value; }
+        public List<string> Hobbies { get => hobbies; set => hobbies = value; }
+
     }
 }
