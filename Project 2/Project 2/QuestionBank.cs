@@ -18,6 +18,11 @@ namespace Project_2
         public List<Question> AllQuestions { get => allQuestions; set => allQuestions = value; }
 
         //public QuestionBank(List<Question> allQuestions);
+        
+        public List<Question> GetCategory(string category, string difficulty)
+        {
+            return allQuestions.Where( n => n.Category == category && n.Difficulty == difficulty).ToList();
+        }
 
     }
 }
