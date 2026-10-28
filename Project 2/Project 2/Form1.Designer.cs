@@ -41,12 +41,16 @@
             button8 = new Button();
             button9 = new Button();
             button10 = new Button();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(40, 190);
+            button1.Location = new Point(40, 210);
             button1.Name = "button1";
             button1.Size = new Size(276, 55);
             button1.TabIndex = 0;
@@ -56,17 +60,19 @@
             // panel1
             // 
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(40, 43);
+            panel1.Location = new Point(40, 83);
             panel1.Name = "panel1";
             panel1.Size = new Size(769, 100);
             panel1.TabIndex = 1;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(307, 46);
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(253, 32);
             label1.Name = "label1";
-            label1.Size = new Size(160, 15);
+            label1.Size = new Size(213, 20);
             label1.TabIndex = 0;
             label1.Text = "Which shape has three sides?";
             label1.Click += label1_Click;
@@ -80,10 +86,11 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(249, 589);
             listBox1.TabIndex = 2;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // button2
             // 
-            button2.Location = new Point(421, 190);
+            button2.Location = new Point(421, 210);
             button2.Name = "button2";
             button2.Size = new Size(270, 55);
             button2.TabIndex = 3;
@@ -92,7 +99,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(40, 280);
+            button3.Location = new Point(40, 314);
             button3.Name = "button3";
             button3.Size = new Size(276, 55);
             button3.TabIndex = 4;
@@ -101,7 +108,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(421, 283);
+            button4.Location = new Point(421, 314);
             button4.Name = "button4";
             button4.Size = new Size(270, 48);
             button4.TabIndex = 5;
@@ -163,11 +170,53 @@
             button10.Text = "Change Question";
             button10.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(40, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(211, 15);
+            label2.TabIndex = 12;
+            label2.Text = "Player: Alex, 34 (Teacher), enjoys Chess";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(40, 33);
+            label3.Name = "label3";
+            label3.Size = new Size(60, 15);
+            label3.TabIndex = 13;
+            label3.Text = "Level 1/15";
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(269, 48);
+            label4.Name = "label4";
+            label4.Size = new Size(108, 17);
+            label4.TabIndex = 14;
+            label4.Text = "Playing for $100";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(549, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(169, 15);
+            label5.TabIndex = 15;
+            label5.Text = "Phone a Friend: Sam(Librarian)";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1093, 651);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(button10);
             Controls.Add(button9);
             Controls.Add(button8);
@@ -185,6 +234,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -202,5 +252,9 @@
         private Button button8;
         private Button button9;
         private Button button10;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }

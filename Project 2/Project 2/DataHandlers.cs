@@ -11,9 +11,10 @@ namespace Project_2
     {
         public static void ReadFromFile(string filePath, List<Player>players, List<Caller>callers)
         {
-            string json = File.ReadAllText("question.json");
+            string json = File.ReadAllText(filePath);
 
-           // Question question = JsonSerializer.Deserialize<Question>(json);
+            List<Question> question = JsonSerializer.Deserialize<List<Question>>(json);
+
         }
     }
     
