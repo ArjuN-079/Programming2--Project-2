@@ -11,8 +11,14 @@ namespace Project_2
         {
             InitializeComponent();
             questionBank = new(DataHandlers.ReadFromFile("SavedData/all-questions.json"));
-            questions = questionBank.GetCategory("Art", "easy");
+            
             // DataHandlers.ReadFromFile("SavedData/all-questions.json", questions, questionBanks);
+            LoadQuestions("Art");
+        }
+        private void LoadQuestions(string category)
+        {
+            questions = questionBank.GetCategory(category, "easy");
+
         }
 
 
@@ -40,6 +46,7 @@ namespace Project_2
             button3.Text = questions[num].Incorrect[1];
             button4.Text = questions[num].Incorrect[2];
             num++;
+            LoadQuestions("Sports");
         }
 
         private void label1_Click(object sender, EventArgs e)
