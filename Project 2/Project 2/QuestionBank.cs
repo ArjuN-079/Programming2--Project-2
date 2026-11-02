@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 namespace Project_2
 {
     public class QuestionBank
+    //Fields
     {
         private List<Question> allQuestions;
 
+
+        //constructor
         public QuestionBank(List<Question> allQuestions)
         {
             this.allQuestions = allQuestions;
         }
 
+        //encapsulation {but still use field}
         public List<Question> AllQuestions { get => allQuestions; set => allQuestions = value; }
 
         //public QuestionBank(List<Question> allQuestions);
