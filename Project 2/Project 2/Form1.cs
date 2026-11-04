@@ -1,3 +1,5 @@
+using Project_2.SavedData;
+
 namespace Project_2
 {
     public partial class Form1 : Form
@@ -7,17 +9,22 @@ namespace Project_2
         private static List<Question> questions;
         private static QuestionBank questionBank;
         private int num = 0;
+        private Category chooseCategory = new Category();
         public Form1()
         {
             InitializeComponent();
             questionBank = new(DataHandlers.ReadFromFile("SavedData/all-questions.json"));
-            
+
             // DataHandlers.ReadFromFile("SavedData/all-questions.json", questions, questionBanks);
             LoadQuestions("Art");
+
+            chooseCategory.ShowDialog();
+            string current = chooseCategory.CategoryName;
         }
         private void LoadQuestions(string category)
         {
             questions = questionBank.GetCategory(category, "easy");
+
 
         }
 
@@ -50,6 +57,11 @@ namespace Project_2
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
