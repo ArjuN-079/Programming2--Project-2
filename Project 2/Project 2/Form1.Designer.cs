@@ -77,7 +77,6 @@
             label1.TabIndex = 0;
             label1.Text = "Which shape has three sides?";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // listBox1
             // 
@@ -153,7 +152,6 @@
             button7.TabIndex = 8;
             button7.Text = "50:50";
             button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
             // 
             // button8
             // 
