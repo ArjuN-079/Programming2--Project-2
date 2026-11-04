@@ -46,6 +46,7 @@ namespace Project_2
         }
 
         private void button5_Click(object sender, EventArgs e)
+            // loading the questions by order.........
         {
             num++;
             button1.Text = questions[num].Correct;
@@ -69,14 +70,10 @@ namespace Project_2
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (button3.Text == questions[num].Correct)
+           
             {
                 button3.ForeColor = Color.Green;
             }

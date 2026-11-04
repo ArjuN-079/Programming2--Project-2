@@ -40,7 +40,7 @@ namespace Project_2.SavedData
         // button of category GENERAL KNOWLEDGE
         private void button3_Click(object sender, EventArgs e)
         {
-            CategoryName = "general knowledge";
+            CategoryName = "General Knowledge";
             button1.Visible = false;
             Close();
         }
@@ -48,7 +48,7 @@ namespace Project_2.SavedData
         // button of category HISTORY
         private void button4_Click(object sender, EventArgs e)
         {
-            CategoryName = "history";
+            CategoryName = "History";
             button1.Visible = false;
             Close();
         }
@@ -56,7 +56,7 @@ namespace Project_2.SavedData
         // button of category MUSIC
         private void button5_Click(object sender, EventArgs e)
         {
-            CategoryName = "music";
+            CategoryName = "Entertainment: Music";
             button1.Visible = false;
             Close();
         }
@@ -64,7 +64,7 @@ namespace Project_2.SavedData
         // button of category SPORT
         private void button6_Click(object sender, EventArgs e)
         {
-            CategoryName = "sport";
+            CategoryName = "Sports";
             button1.Visible = false;
             Close();
         }
