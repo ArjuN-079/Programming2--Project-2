@@ -21,7 +21,7 @@ namespace Project_2.SavedData
         // button of category ART
         private void button1_Click(object sender, EventArgs e)
         {
-            CategoryName = "art";
+            CategoryName = "Art";
             button1.Visible = false;
             Close();
         }
@@ -33,7 +33,7 @@ namespace Project_2.SavedData
         // button of category COMPUTER
         private void button2_Click(object sender, EventArgs e)
         {
-            CategoryName = "computers";
+            CategoryName = "Science: Computers";
             button2.Visible = false;
             Close();
         }

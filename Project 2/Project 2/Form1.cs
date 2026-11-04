@@ -16,15 +16,15 @@ namespace Project_2
             questionBank = new(DataHandlers.ReadFromFile("SavedData/all-questions.json"));
 
             // DataHandlers.ReadFromFile("SavedData/all-questions.json", questions, questionBanks);
-            LoadQuestions("Art");
 
             chooseCategory.ShowDialog();
             string current = chooseCategory.CategoryName;
+            LoadQuestions(current);
+
         }
         private void LoadQuestions(string category)
         {
             questions = questionBank.GetCategory(category, "easy");
-
 
         }
 
@@ -47,13 +47,13 @@ namespace Project_2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            label1.Text = questions[num].Quest;
+            num++;
             button1.Text = questions[num].Correct;
+            label1.Text = questions[num].Quest;
             button2.Text = questions[num].Incorrect[0];
             button3.Text = questions[num].Incorrect[1];
             button4.Text = questions[num].Incorrect[2];
-            num++;
-            LoadQuestions("Sports");
+            //LoadQuestions("Sports");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -63,7 +63,51 @@ namespace Project_2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (button1.Text == questions[num].Correct)
+            {
+                button1.ForeColor = Color.Green;
+            }
+        }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (button3.Text == questions[num].Correct)
+            {
+                button3.ForeColor = Color.Green;
+            }
+            else
+            {
+                button3.ForeColor = Color.Red;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (button2.Text == questions[num].Correct)
+            {
+                button2.ForeColor = Color.Green;
+            }
+            else
+            {
+                button2.ForeColor = Color.Red;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (button4.Text == questions[num].Correct)
+            {
+                button4.ForeColor = Color.Green;
+            }
+            else
+            {
+                button4.ForeColor = Color.Red;
+            }
         }
     }
 }

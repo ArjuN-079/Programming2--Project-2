@@ -69,13 +69,14 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(240, 40);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(283, 25);
+            label1.Size = new Size(879, 113);
             label1.TabIndex = 0;
             label1.Text = "Which shape has three sides?";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
             // listBox1
@@ -97,6 +98,7 @@
             button2.TabIndex = 3;
             button2.Text = "Square";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -107,6 +109,7 @@
             button3.TabIndex = 4;
             button3.Text = "Triangle";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -117,6 +120,7 @@
             button4.TabIndex = 5;
             button4.Text = "Pentagon";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -149,6 +153,7 @@
             button7.TabIndex = 8;
             button7.Text = "50:50";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button8
             // 
@@ -243,7 +248,6 @@
             Name = "Form1";
             Text = "Form1";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
