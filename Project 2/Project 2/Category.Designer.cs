@@ -1,4 +1,4 @@
-﻿namespace Project_2.SavedData
+﻿namespace Project_2
 {
     partial class Category
     {
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            btnArt = new Button();
+            btnComputers = new Button();
+            btnGeneralKnowledge = new Button();
+            btnHistory = new Button();
+            btnMusic = new Button();
+            btnSport = new Button();
             SuspendLayout();
             // 
             // label1
@@ -48,87 +48,86 @@
             label1.TabIndex = 0;
             label1.Text = "Choose Your  easy Category";
             // 
-            // button1
+            // btnArt
             // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(62, 57);
-            button1.Name = "button1";
-            button1.Size = new Size(188, 36);
-            button1.TabIndex = 1;
-            button1.Text = "ART";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnArt.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnArt.Location = new Point(62, 57);
+            btnArt.Name = "btnArt";
+            btnArt.Size = new Size(188, 36);
+            btnArt.TabIndex = 1;
+            btnArt.Text = "ART";
+            btnArt.UseVisualStyleBackColor = true;
+            btnArt.Click += btnArt_Click;
             // 
-            // button2
+            // btnComputers
             // 
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button2.Location = new Point(62, 99);
-            button2.Name = "button2";
-            button2.Size = new Size(188, 39);
-            button2.TabIndex = 2;
-            button2.Text = "COMPUTERS";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnComputers.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnComputers.Location = new Point(62, 99);
+            btnComputers.Name = "btnComputers";
+            btnComputers.Size = new Size(188, 39);
+            btnComputers.TabIndex = 2;
+            btnComputers.Text = "COMPUTERS";
+            btnComputers.UseVisualStyleBackColor = true;
+            btnComputers.Click += btnComputers_Click;
             // 
-            // button3
+            // btnGeneralKnowledge
             // 
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button3.Location = new Point(62, 144);
-            button3.Name = "button3";
-            button3.Size = new Size(188, 40);
-            button3.TabIndex = 3;
-            button3.Text = "GENERAL KNOWLEDGE";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnGeneralKnowledge.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnGeneralKnowledge.Location = new Point(62, 144);
+            btnGeneralKnowledge.Name = "btnGeneralKnowledge";
+            btnGeneralKnowledge.Size = new Size(188, 40);
+            btnGeneralKnowledge.TabIndex = 3;
+            btnGeneralKnowledge.Text = "GENERAL KNOWLEDGE";
+            btnGeneralKnowledge.UseVisualStyleBackColor = true;
+            btnGeneralKnowledge.Click += btnGeneralKnowledge_Click;
             // 
-            // button4
+            // btnHistory
             // 
-            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button4.Location = new Point(62, 190);
-            button4.Name = "button4";
-            button4.Size = new Size(188, 39);
-            button4.TabIndex = 4;
-            button4.Text = "HISTORY";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnHistory.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnHistory.Location = new Point(62, 190);
+            btnHistory.Name = "btnHistory";
+            btnHistory.Size = new Size(188, 39);
+            btnHistory.TabIndex = 4;
+            btnHistory.Text = "HISTORY";
+            btnHistory.UseVisualStyleBackColor = true;
+            btnHistory.Click += btnHistory_Click;
             // 
-            // button5
+            // btnMusic
             // 
-            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button5.Location = new Point(62, 235);
-            button5.Name = "button5";
-            button5.Size = new Size(188, 44);
-            button5.TabIndex = 5;
-            button5.Text = "MUSIC";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            btnMusic.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnMusic.Location = new Point(62, 235);
+            btnMusic.Name = "btnMusic";
+            btnMusic.Size = new Size(188, 44);
+            btnMusic.TabIndex = 5;
+            btnMusic.Text = "MUSIC";
+            btnMusic.UseVisualStyleBackColor = true;
+            btnMusic.Click += btnMusic_Click;
             // 
-            // button6
+            // btnSport
             // 
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button6.Location = new Point(62, 285);
-            button6.Name = "button6";
-            button6.Size = new Size(188, 38);
-            button6.TabIndex = 6;
-            button6.Text = "SPORT";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            btnSport.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnSport.Location = new Point(62, 285);
+            btnSport.Name = "btnSport";
+            btnSport.Size = new Size(188, 38);
+            btnSport.TabIndex = 6;
+            btnSport.Text = "SPORT";
+            btnSport.UseVisualStyleBackColor = true;
+            btnSport.Click += btnSport_Click;
             // 
             // Category
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(308, 382);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnSport);
+            Controls.Add(btnMusic);
+            Controls.Add(btnHistory);
+            Controls.Add(btnGeneralKnowledge);
+            Controls.Add(btnComputers);
+            Controls.Add(btnArt);
             Controls.Add(label1);
             Name = "Category";
             Text = "Category";
-            Load += Category_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,11 +135,11 @@
         #endregion
 
         private Label label1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button btnArt;
+        private Button btnComputers;
+        private Button btnGeneralKnowledge;
+        private Button btnHistory;
+        private Button btnMusic;
+        private Button btnSport;
     }
 }

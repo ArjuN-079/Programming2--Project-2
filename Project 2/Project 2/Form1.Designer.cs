@@ -57,7 +57,7 @@
             button1.TabIndex = 0;
             button1.Text = "Hexagon";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += AnswerButton_Click;
             // 
             // panel1
             // 
@@ -81,11 +81,11 @@
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 17;
+            listBox1.ItemHeight = 21;
             listBox1.Items.AddRange(new object[] { "$1,000,000 ", "$500,000 ", "$250,000 ", "$125,000 ", "$64,000 ", "$32,000 – Bank level ", "$16,000 ", "$8,000 ", "$4,000 ", "$2,000 ", "$1,000 – Bank level ", "$500 ", "$300 ", "$200 ", "$100 " });
             listBox1.Location = new Point(951, 67);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(284, 667);
+            listBox1.Size = new Size(284, 655);
             listBox1.TabIndex = 2;
             // 
             // button2
@@ -97,7 +97,7 @@
             button2.TabIndex = 3;
             button2.Text = "Square";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += AnswerButton_Click;
             // 
             // button3
             // 
@@ -108,7 +108,7 @@
             button3.TabIndex = 4;
             button3.Text = "Triangle";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            button3.Click += AnswerButton_Click;
             // 
             // button4
             // 
@@ -119,7 +119,7 @@
             button4.TabIndex = 5;
             button4.Text = "Pentagon";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            button4.Click += AnswerButton_Click;
             // 
             // button5
             // 
@@ -189,7 +189,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(46, 10);
             label2.Name = "label2";
-            label2.Size = new Size(252, 17);
+            label2.Size = new Size(321, 23);
             label2.TabIndex = 12;
             label2.Text = "Player: Alex, 34 (Teacher), enjoys Chess";
             // 
@@ -198,7 +198,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(46, 37);
             label3.Name = "label3";
-            label3.Size = new Size(71, 17);
+            label3.Size = new Size(94, 23);
             label3.TabIndex = 13;
             label3.Text = "Level 1/15";
             // 
@@ -208,7 +208,7 @@
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(307, 54);
             label4.Name = "label4";
-            label4.Size = new Size(108, 17);
+            label4.Size = new Size(143, 23);
             label4.TabIndex = 14;
             label4.Text = "Playing for $100";
             // 
@@ -217,13 +217,13 @@
             label5.AutoSize = true;
             label5.Location = new Point(627, 10);
             label5.Name = "label5";
-            label5.Size = new Size(200, 17);
+            label5.Size = new Size(258, 23);
             label5.TabIndex = 15;
             label5.Text = "Phone a Friend: Sam(Librarian)";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 738);
             Controls.Add(button8);

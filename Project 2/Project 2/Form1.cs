@@ -1,44 +1,58 @@
-using Project_2.SavedData;
-
+using System.Net;
 namespace Project_2
 {
     public partial class Form1 : Form
     {
-        private static List<Player> players;
-        private static List<Caller> callers;
-        private static List<Question> questions;
-        private static QuestionBank questionBank;
-        private int num = 0;
-        private Category chooseCategory = new Category();
-        private int winnings = 0;
-        private bool answered = false;
+        private List<Player> players;
+        private List<Caller> callers;
+        private QuestionBank questionBank;
         private Random random = new Random();
-        private string CorrectAnswer;
+        private string correctAnswer;
+
+        private int currentLevel = 0;
+        private List<Question> currentSet = new List<Question>();
+        private int setIndex = 0;
+        private List<string> usedCategories = new List<string>();
+        private Question? currentQuestion;
+
         public Form1()
         {
             InitializeComponent();
             questionBank = new(DataHandlers.ReadFromFile("SavedData/all-questions.json"));
-
-            // DataHandlers.ReadFromFile("SavedData/all-questions.json", questions, questionBanks);
-
-            chooseCategory.ShowDialog();
-            string current = chooseCategory.CategoryName;
-            LoadQuestions(current);
-
+            StartNewSet();
         }
-
-        private void LoadQuestions(string category)
+        private string GetDifficulty()
         {
-           // questions = questionBank.GetCategory(category, "easy");
-            questions = new List<Question>();
-            
-            questions.AddRange(questionBank.GetCategory(category, "easy"));
-            questions.AddRange(questionBank.GetCategory(category, "medium"));
-            questions.AddRange(questionBank.GetCategory(category, "hard"));
-
+            if (currentLevel < 5)
+            {
+                return "easy";
+            }
+            else if (currentLevel < 10)
+            {
+                return "medium";
+            }
+            else
+            {
+                return "hard";
+            }
         }
 
+        private void StartNewSet()
+        {
+            Category categoryForm = new Category(usedCategories);
+            categoryForm.ShowDialog();
 
+            string chosen = categoryForm.CategoryName;
+            usedCategories.Add(chosen);
+
+            currentSet = questionBank.GetCategory(chosen, GetDifficulty())
+                .OrderBy(x => random.Next())
+                .Take(5)
+                .ToList();
+
+            setIndex = 0;
+            ShowQuestion();
+        }
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -52,114 +66,83 @@ namespace Project_2
 
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (button1.Text == CorrectAnswer)
-            {
-                button1.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                button1.ForeColor = Color.Black;
-                button1.BackColor = Color.IndianRed;
-            }
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (button2.Text == CorrectAnswer)
-            {
-                button2.ForeColor = Color.Green;
-            }
-            else
-            {
-                button2.ForeColor = Color.Black;
-                button2.BackColor = Color.IndianRed;
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (button3.Text == CorrectAnswer)
-           
-            {
-                button3.ForeColor = Color.White;
-            }
-            else
-            {
-                button3.ForeColor = Color.Black;
-                button3.BackColor = Color.IndianRed;
-            }
-        }
-
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (button4.Text == CorrectAnswer)
-            {
-                button4.ForeColor = Color.Green;
-            }
-            else
-            {
-                button4.ForeColor = Color.Black;
-                button4.BackColor = Color.IndianRed;
-            }
-        }
-
-        private readonly string[] moneyTree =
+        private readonly int[] moneyTree =
         {
             //Money Tree Prize Levels ---------
 
-            "$100",
-            "$200",
-            "$300",
-            "$500",
-            "$1000  – Bank level",
-            "$2000",
-            "$4000",
-            "$8000",
-            "$16,000",
-            "$32,000  – Bank level", 
-            "$64,000",
-            "$125,000",
-            "$250,000",
-            "$500,000",
-            "$1,000,000",
+            100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000
                 
             //----------------------------------------
         };
-
-        private void button5_Click(object sender, EventArgs e)
-            // loading the questions by order.........
+        private void ShowQuestion()
         {
-            if(num >= questions.Count)
-            {
-                MessageBox.Show("");
-                return;
-            }
-            Question currentQuestion = questions[num];
+            currentQuestion = currentSet[setIndex];
+            button1.BackColor = SystemColors.Control;
+            button1.Enabled = true;
+            button2.BackColor = SystemColors.Control;
+            button2.Enabled = true;
+            button3.BackColor = SystemColors.Control;
+            button3.Enabled = true;
+            button4.BackColor = SystemColors.Control;
+            button4.Enabled = true;
             label1.Text = currentQuestion.Quest;
-            CorrectAnswer = currentQuestion.Correct;
+            correctAnswer = currentQuestion.Correct;
             List<string> answers = new List<string>();
 
             answers.Add(currentQuestion.Correct);
             answers.AddRange(currentQuestion.Incorrect);
 
-            answers = answers.OrderBy(x=> random.Next()).ToList();
+            answers = answers.OrderBy(x => random.Next()).ToList();
             button1.Text = answers[0];
             button2.Text = answers[1];
             button3.Text = answers[2];
             button4.Text = answers[3];
-            
-            num++;
+            button5.Enabled = false;
+        }
 
-            //button1.Text = questions[num].Correct;
-            //label1.Text = questions[num].Quest;
-            //button2.Text = questions[num].Incorrect[0];
-            //button3.Text = questions[num].Incorrect[1];
-            //button4.Text = questions[num].Incorrect[2];
-            //LoadQuestions("Sports");
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ShowQuestion();
+        }
+
+        private void AnswerButton_Click(object sender, EventArgs e)
+        {
+            Button clicked = (Button)sender;
+
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+
+            if (clicked.Text == correctAnswer)
+            {
+                clicked.BackColor = Color.LightGreen;
+                currentLevel++;
+                setIndex++;
+
+                if (currentLevel == 15)
+                {
+                    MessageBox.Show("You won $1,000,000!");
+                }
+                else if (currentLevel == 5 || currentLevel == 10)
+                {
+                    StartNewSet();
+                }
+                else
+                {
+                    button5.Enabled = true;
+                }
+            }
+            else
+            {
+                clicked.BackColor = Color.IndianRed;
+
+                if (button1.Text == correctAnswer) button1.BackColor = Color.LightGreen;
+                if (button2.Text == correctAnswer) button2.BackColor = Color.LightGreen;
+                if (button3.Text == correctAnswer) button3.BackColor = Color.LightGreen;
+                if (button4.Text == correctAnswer) button4.BackColor = Color.LightGreen;
+                MessageBox.Show("Wrong answer! Game over.");
+            }
         }
     }
 }
