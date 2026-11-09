@@ -45,11 +45,7 @@ namespace Project_2
             string chosen = categoryForm.CategoryName;
             usedCategories.Add(chosen);
 
-            currentSet = questionBank.GetCategory(chosen, GetDifficulty())
-                .OrderBy(x => random.Next())
-                .Take(5)
-                .ToList();
-
+            currentSet = questionBank.GetCategory(chosen, GetDifficulty()).OrderBy(x => random.Next()).Take(5).ToList();
             setIndex = 0;
             ShowQuestion();
         }
@@ -70,9 +66,23 @@ namespace Project_2
         {
             //Money Tree Prize Levels ---------
 
-            100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000
+            100,
+            200,
+            300,
+            500,
+            1000,
+            2000,
+            4000,
+            8000,
+            16000,
+            32000,
+            64000,
+            125000,
+            250000,
+            500000,
+            1000000
                 
-            //----------------------------------------
+            //--------------------------------------(copy from instruction)
         };
         private void ShowQuestion()
         {
@@ -141,7 +151,7 @@ namespace Project_2
                 if (button2.Text == correctAnswer) button2.BackColor = Color.LightGreen;
                 if (button3.Text == correctAnswer) button3.BackColor = Color.LightGreen;
                 if (button4.Text == correctAnswer) button4.BackColor = Color.LightGreen;
-                MessageBox.Show("Wrong answer! Game over.");
+                MessageBox.Show("Game over.");
             }
         }
     }
