@@ -45,6 +45,8 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -81,11 +83,12 @@
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 21;
+            listBox1.ImeMode = ImeMode.Disable;
+            listBox1.ItemHeight = 17;
             listBox1.Items.AddRange(new object[] { "$1,000,000 ", "$500,000 ", "$250,000 ", "$125,000 ", "$64,000 ", "$32,000 – Bank level ", "$16,000 ", "$8,000 ", "$4,000 ", "$2,000 ", "$1,000 – Bank level ", "$500 ", "$300 ", "$200 ", "$100 " });
             listBox1.Location = new Point(951, 67);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(284, 655);
+            listBox1.Size = new Size(284, 650);
             listBox1.TabIndex = 2;
             // 
             // button2
@@ -189,7 +192,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(46, 10);
             label2.Name = "label2";
-            label2.Size = new Size(321, 23);
+            label2.Size = new Size(252, 17);
             label2.TabIndex = 12;
             label2.Text = "Player: Alex, 34 (Teacher), enjoys Chess";
             // 
@@ -198,7 +201,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(46, 37);
             label3.Name = "label3";
-            label3.Size = new Size(94, 23);
+            label3.Size = new Size(71, 17);
             label3.TabIndex = 13;
             label3.Text = "Level 1/15";
             // 
@@ -208,7 +211,7 @@
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(307, 54);
             label4.Name = "label4";
-            label4.Size = new Size(143, 23);
+            label4.Size = new Size(108, 17);
             label4.TabIndex = 14;
             label4.Text = "Playing for $100";
             // 
@@ -217,15 +220,34 @@
             label5.AutoSize = true;
             label5.Location = new Point(627, 10);
             label5.Name = "label5";
-            label5.Size = new Size(258, 23);
+            label5.Size = new Size(200, 17);
             label5.TabIndex = 15;
             label5.Text = "Phone a Friend: Sam(Librarian)";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(73, 457);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 17);
+            label6.TabIndex = 16;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(46, 488);
+            label7.Name = "label7";
+            label7.Size = new Size(0, 17);
+            label7.TabIndex = 17;
+            label7.Click += label7_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 738);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(button8);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -245,6 +267,7 @@
             Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -269,5 +292,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private Label label6;
+        private Label label7;
     }
 }

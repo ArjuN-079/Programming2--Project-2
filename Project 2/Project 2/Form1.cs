@@ -129,6 +129,7 @@ namespace Project_2
                 clicked.BackColor = Color.LightGreen;
                 currentLevel++;
                 setIndex++;
+                label7.Text = $"correctAnswer. ${moneyTree[currentLevel]}";
 
                 if (currentLevel == 15)
                 {
@@ -151,8 +152,22 @@ namespace Project_2
                 if (button2.Text == correctAnswer) button2.BackColor = Color.LightGreen;
                 if (button3.Text == correctAnswer) button3.BackColor = Color.LightGreen;
                 if (button4.Text == correctAnswer) button4.BackColor = Color.LightGreen;
-                MessageBox.Show("Game over.");
+                label6.Text = $"Incorrect Answer.The correct answer was: {correctAnswer}";
+                //  label7.Text = $"correctAnswer.{correctAnswer}";
+
+
+
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
