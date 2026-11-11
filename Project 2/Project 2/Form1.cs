@@ -107,7 +107,7 @@ namespace Project_2
             button2.Text = answers[1];
             button3.Text = answers[2];
             button4.Text = answers[3];
-            button5.Enabled = false;
+            button5.Enabled = false; // answer  button / incorrect answers
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -129,14 +129,16 @@ namespace Project_2
                 clicked.BackColor = Color.LightGreen;
                 currentLevel++;
                 setIndex++;
-                label7.Text = $"correctAnswer. ${moneyTree[currentLevel]}";
+                label6.Text = $"correctAnswer. ${moneyTree[currentLevel]}";// money tree  level show in label correct answer
                 label3.Text = $"Level {currentLevel + 1} / 15";
+
+                //level changing 1+++/15
 
                 if (currentLevel == 15)
                 {
-                    MessageBox.Show("You won $1,000,000!");
+                    MessageBox.Show("You won $1,000,000!"); // final output of game
                 }
-                else if (currentLevel == 5 || currentLevel == 10)
+                else if (currentLevel == 5 || currentLevel == 10) // level up the game setup to auto change like 1-5 easy,next medium and hard.
                 {
                     StartNewSet();
                 }

@@ -39,9 +39,9 @@
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(212, 117);
             label1.Name = "label1";
-            label1.Size = new Size(183, 17);
+            label1.Size = new Size(187, 17);
             label1.TabIndex = 0;
-            label1.Text = "You Walked Away With$100.";
+            label1.Text = "You Walked Away With $100.";
             // 
             // button1
             // 
