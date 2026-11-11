@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ListBox listBox1;
             button1 = new Button();
             panel1 = new Panel();
             label1 = new Label();
-            listBox1 = new ListBox();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -47,8 +47,23 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
+            label8 = new Label();
+            listBox1 = new ListBox();
             panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // listBox1
+            // 
+            listBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            listBox1.FormattingEnabled = true;
+            listBox1.ImeMode = ImeMode.Disable;
+            listBox1.ItemHeight = 17;
+            listBox1.Items.AddRange(new object[] { "  15.   $1,000,000 ", "  14.   $500,000 ", "  13.   $250,000 ", "  12.   $125,000 ", "  11.   $64,000 ", "  10.   $32,000 – (safe)", "  9.   $16,000 ", "  8.   $8,000 ", "  7.   $4,000 ", "  6.   $2,000 ", "  5.   $1,000 – (safe)", "  4.   $500 ", "  3.   $300 ", "  2.   $200 ", "  1.   $100 " });
+            listBox1.Location = new Point(951, 67);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(284, 650);
+            listBox1.TabIndex = 2;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // button1
             // 
@@ -79,17 +94,7 @@
             label1.TabIndex = 0;
             label1.Text = "Which shape has three sides?";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ImeMode = ImeMode.Disable;
-            listBox1.ItemHeight = 17;
-            listBox1.Items.AddRange(new object[] { "$1,000,000 ", "$500,000 ", "$250,000 ", "$125,000 ", "$64,000 ", "$32,000 – Bank level ", "$16,000 ", "$8,000 ", "$4,000 ", "$2,000 ", "$1,000 – Bank level ", "$500 ", "$300 ", "$200 ", "$100 " });
-            listBox1.Location = new Point(951, 67);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(284, 650);
-            listBox1.TabIndex = 2;
+            label1.Click += label1_Click;
             // 
             // button2
             // 
@@ -127,7 +132,7 @@
             // button5
             // 
             button5.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(73, 532);
+            button5.Location = new Point(73, 511);
             button5.Name = "button5";
             button5.Size = new Size(134, 42);
             button5.TabIndex = 6;
@@ -138,7 +143,7 @@
             // button6
             // 
             button6.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(256, 532);
+            button6.Location = new Point(256, 511);
             button6.Name = "button6";
             button6.Size = new Size(129, 42);
             button6.TabIndex = 7;
@@ -149,7 +154,7 @@
             // button7
             // 
             button7.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button7.Location = new Point(73, 611);
+            button7.Location = new Point(73, 594);
             button7.Name = "button7";
             button7.Size = new Size(134, 37);
             button7.TabIndex = 8;
@@ -159,7 +164,7 @@
             // button8
             // 
             button8.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold);
-            button8.Location = new Point(271, 611);
+            button8.Location = new Point(271, 594);
             button8.Name = "button8";
             button8.Size = new Size(135, 37);
             button8.TabIndex = 9;
@@ -169,7 +174,7 @@
             // button9
             // 
             button9.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold);
-            button9.Location = new Point(451, 611);
+            button9.Location = new Point(452, 594);
             button9.Name = "button9";
             button9.Size = new Size(127, 37);
             button9.TabIndex = 10;
@@ -179,7 +184,7 @@
             // button10
             // 
             button10.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button10.Location = new Point(627, 611);
+            button10.Location = new Point(627, 594);
             button10.Name = "button10";
             button10.Size = new Size(122, 37);
             button10.TabIndex = 11;
@@ -211,9 +216,9 @@
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(307, 54);
             label4.Name = "label4";
-            label4.Size = new Size(108, 17);
+            label4.Size = new Size(113, 17);
             label4.TabIndex = 14;
-            label4.Text = "Playing for $100";
+            label4.Text = "Playing for: $100";
             // 
             // label5
             // 
@@ -241,11 +246,21 @@
             label7.TabIndex = 17;
             label7.Click += label7_Click;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(963, 37);
+            label8.Name = "label8";
+            label8.Size = new Size(80, 17);
+            label8.TabIndex = 18;
+            label8.Text = "Money Tree";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 738);
+            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(button8);
@@ -294,5 +309,6 @@
         private Label label5;
         private Label label6;
         private Label label7;
+        private Label label8;
     }
 }

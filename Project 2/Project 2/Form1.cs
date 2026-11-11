@@ -130,6 +130,7 @@ namespace Project_2
                 currentLevel++;
                 setIndex++;
                 label7.Text = $"correctAnswer. ${moneyTree[currentLevel]}";
+                label3.Text = $"Level {currentLevel + 1} / 15";
 
                 if (currentLevel == 15)
                 {
@@ -155,8 +156,6 @@ namespace Project_2
                 label6.Text = $"Incorrect Answer.The correct answer was: {correctAnswer}";
                 //  label7.Text = $"correctAnswer.{correctAnswer}";
 
-
-
             }
         }
 
@@ -166,6 +165,16 @@ namespace Project_2
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
