@@ -1,4 +1,5 @@
 using System.Net;
+using System.Security;
 namespace Project_2
 {
     public partial class Form1 : Form
@@ -14,6 +15,8 @@ namespace Project_2
         private int setIndex = 0;
         private List<string> usedCategories = new List<string>();
         private Question? currentQuestion;
+        
+
 
         public Form1()
         {
@@ -37,6 +40,23 @@ namespace Project_2
             }
         }
 
+        private int GetBankAmount()
+        {
+            if (currentLevel < 10)
+            {
+                return 32000;
+            }
+
+            else if(currentLevel < 5)
+            {
+                return 1000;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         private void StartNewSet()
         {
             Category categoryForm = new Category(usedCategories);
@@ -50,9 +70,12 @@ namespace Project_2
             ShowQuestion();
         }
 
+
         private void button6_Click(object sender, EventArgs e)
         {
-            button6.Enabled = false;
+            // button6.Enabled = false;
+            GameOver gameOver = new GameOver(moneyTree[currentLevel - 1]);
+            gameOver.ShowDialog();
         }
 
 
@@ -108,6 +131,7 @@ namespace Project_2
             button3.Text = answers[2];
             button4.Text = answers[3];
             button5.Enabled = false; // answer  button / incorrect answers
+            button6.Enabled = currentLevel > 0; // walk out  money
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -136,7 +160,9 @@ namespace Project_2
 
                 if (currentLevel == 15)
                 {
-                    MessageBox.Show("You won $1,000,000!"); // final output of game
+                    //MessageBox.Show("You won $1,000,000!"); // final output of game
+                    GameOver gameOver = new GameOver(1000000);
+                    gameOver.ShowDialog();
                 }
                 else if (currentLevel == 5 || currentLevel == 10) // level up the game setup to auto change like 1-5 easy,next medium and hard.
                 {
@@ -157,6 +183,9 @@ namespace Project_2
                 if (button4.Text == correctAnswer) button4.BackColor = Color.LightGreen;
                 label6.Text = $"Incorrect Answer.The correct answer was: {correctAnswer}";
                 //  label7.Text = $"correctAnswer.{correctAnswer}";
+
+                GameOver gameOver = new GameOver(GetBankAmount());
+                gameOver.ShowDialog();
 
             }
         }

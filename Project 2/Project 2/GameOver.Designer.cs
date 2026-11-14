@@ -37,18 +37,19 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(212, 117);
+            label1.Location = new Point(242, 156);
             label1.Name = "label1";
-            label1.Size = new Size(187, 17);
+            label1.Size = new Size(246, 23);
             label1.TabIndex = 0;
             label1.Text = "You Walked Away With $100.";
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.Location = new Point(119, 182);
+            button1.Location = new Point(136, 243);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(130, 36);
+            button1.Size = new Size(149, 48);
             button1.TabIndex = 1;
             button1.Text = "Play Again";
             button1.UseVisualStyleBackColor = true;
@@ -57,9 +58,10 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button2.Location = new Point(343, 182);
+            button2.Location = new Point(392, 243);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(113, 36);
+            button2.Size = new Size(129, 48);
             button2.TabIndex = 2;
             button2.Text = "Exit";
             button2.UseVisualStyleBackColor = true;
@@ -67,12 +69,13 @@
             // 
             // GameOver
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(625, 334);
+            ClientSize = new Size(714, 498);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "GameOver";
             Text = "GameOver";
             ResumeLayout(false);

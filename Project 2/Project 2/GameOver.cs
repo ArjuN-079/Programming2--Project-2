@@ -12,14 +12,15 @@ namespace Project_2
 {
     public partial class GameOver : Form
     {
-        public GameOver()
+        public GameOver(int score)
         {
             InitializeComponent();
+            lblScore.Text = "You won $" + score.ToString("N0");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
 
         private void button2_Click(object sender, EventArgs e)
