@@ -4,24 +4,46 @@ namespace Project_2
 {
     public partial class Form1 : Form
     {
-        private List<Player> players;
-        private List<Caller> callers;
+        private List<Player> players = new List<Player>();
+        private List<Caller> callers = new List<Caller>();
         private QuestionBank questionBank;
         private Random random = new Random();
-        private string correctAnswer;
+        private string correctAnswer = "";
+        private Player? currentPlayer;
+        private Caller? currentCaller;
 
         private int currentLevel = 0;
         private List<Question> currentSet = new List<Question>();
         private int setIndex = 0;
         private List<string> usedCategories = new List<string>();
         private Question? currentQuestion;
-        
+        private FiftyFifty fiftyFifty = new FiftyFifty();
+        private ChangeQuestion changeQuestion = new ChangeQuestion();
+        private AskTheAudience askTheAudience = new AskTheAudience();
+        private PhoneAFriend phoneAFriend = null!;
+
 
 
         public Form1()
         {
             InitializeComponent();
             questionBank = new(DataHandlers.ReadFromFile("SavedData/all-questions.json"));
+            players.Add(new Player(34, new List<string> { "Chess", "Hiking" }, "Alex", "Teacher"));
+            players.Add(new Player(28, new List<string> { "Guitar" }, "Mia", "Nurse"));
+
+            callers.Add(new Caller("Sam", "Librarian",
+                new List<string> { "History", "Art" },
+                new List<string> { "Sports" }));
+            callers.Add(new Caller("Priya", "Engineer",
+                new List<string> { "Science: Computers" },
+                new List<string> { "Entertainment: Music" }));
+
+            currentPlayer = players[random.Next(players.Count)];
+            currentCaller = callers[random.Next(callers.Count)];
+            phoneAFriend = new PhoneAFriend(currentCaller);  
+
+            label2.Text = $"Player: {currentPlayer.Name}, {currentPlayer.Age} ({currentPlayer.Job})";
+            label5.Text = $"Phone a Friend: {currentCaller.Name} ({currentCaller.Job})";
             StartNewSet();
         }
         private string GetDifficulty()
@@ -47,7 +69,7 @@ namespace Project_2
                 return 32000;
             }
 
-            else if(currentLevel < 5)
+            else if (currentLevel < 5)
             {
                 return 1000;
             }
@@ -82,6 +104,11 @@ namespace Project_2
 
         private void button10_Click(object sender, EventArgs e)
         {
+            string category = changeQuestion.Use(currentQuestion!, currentLevel + 1);
+            List<Question> options = questionBank.GetCategory(category, GetDifficulty()).Where(q => !currentSet.Contains(q)).ToList();
+
+            currentSet[setIndex] = options[random.Next(options.Count)];
+            ShowQuestion();
 
         }
 
@@ -208,6 +235,25 @@ namespace Project_2
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string keep = fiftyFifty.Use(currentQuestion!, currentLevel + 1);
+
+            if (button1.Text != correctAnswer && button1.Text != keep) button1.Enabled = false;
+            if (button2.Text != correctAnswer && button2.Text != keep) button2.Enabled = false;
+            if (button3.Text != correctAnswer && button3.Text != keep) button3.Enabled = false;
+            if (button4.Text != correctAnswer && button4.Text != keep) button4.Enabled = false;
+
+            button7.Enabled = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(askTheAudience.Use(currentQuestion!, currentLevel + 1), "Ask the Audience");
+            button8.Enabled = false;
+            //button8.Enabled = askTheAudience.IsAvailable(currentLevel + 1);
         }
     }
 }

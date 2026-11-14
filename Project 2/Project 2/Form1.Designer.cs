@@ -57,11 +57,11 @@
             listBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
             listBox1.ImeMode = ImeMode.Disable;
-            listBox1.ItemHeight = 17;
+            listBox1.ItemHeight = 21;
             listBox1.Items.AddRange(new object[] { "  15.   $1,000,000 ", "  14.   $500,000 ", "  13.   $250,000 ", "  12.   $125,000 ", "  11.   $64,000 ", "  10.   $32,000 – (safe)", "  9.   $16,000 ", "  8.   $8,000 ", "  7.   $4,000 ", "  6.   $2,000 ", "  5.   $1,000 – (safe)", "  4.   $500 ", "  3.   $300 ", "  2.   $200 ", "  1.   $100 " });
             listBox1.Location = new Point(951, 67);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(284, 650);
+            listBox1.Size = new Size(284, 634);
             listBox1.TabIndex = 2;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -160,6 +160,7 @@
             button7.TabIndex = 8;
             button7.Text = "50:50";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button8
             // 
@@ -170,6 +171,7 @@
             button8.TabIndex = 9;
             button8.Text = "Ask the Audience";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // button9
             // 
@@ -197,7 +199,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(46, 10);
             label2.Name = "label2";
-            label2.Size = new Size(252, 17);
+            label2.Size = new Size(321, 23);
             label2.TabIndex = 12;
             label2.Text = "Player: Alex, 34 (Teacher), enjoys Chess";
             // 
@@ -206,7 +208,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(46, 37);
             label3.Name = "label3";
-            label3.Size = new Size(71, 17);
+            label3.Size = new Size(94, 23);
             label3.TabIndex = 13;
             label3.Text = "Level 1/15";
             // 
@@ -216,7 +218,7 @@
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(307, 54);
             label4.Name = "label4";
-            label4.Size = new Size(113, 17);
+            label4.Size = new Size(149, 23);
             label4.TabIndex = 14;
             label4.Text = "Playing for: $100";
             // 
@@ -225,7 +227,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(627, 10);
             label5.Name = "label5";
-            label5.Size = new Size(200, 17);
+            label5.Size = new Size(258, 23);
             label5.TabIndex = 15;
             label5.Text = "Phone a Friend: Sam(Librarian)";
             // 
@@ -234,7 +236,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(73, 457);
             label6.Name = "label6";
-            label6.Size = new Size(0, 17);
+            label6.Size = new Size(0, 23);
             label6.TabIndex = 16;
             // 
             // label7
@@ -242,7 +244,7 @@
             label7.AutoSize = true;
             label7.Location = new Point(46, 488);
             label7.Name = "label7";
-            label7.Size = new Size(0, 17);
+            label7.Size = new Size(0, 23);
             label7.TabIndex = 17;
             label7.Click += label7_Click;
             // 
@@ -251,13 +253,13 @@
             label8.AutoSize = true;
             label8.Location = new Point(963, 37);
             label8.Name = "label8";
-            label8.Size = new Size(80, 17);
+            label8.Size = new Size(103, 23);
             label8.TabIndex = 18;
             label8.Text = "Money Tree";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1249, 738);
             Controls.Add(label8);

@@ -15,7 +15,7 @@ namespace Project_2
         public GameOver(int score)
         {
             InitializeComponent();
-            lblScore.Text = "You won $" + score.ToString("N0");
+            //lblScore.Text = "You won $" + score.ToString("N0");
         }
 
         private void button1_Click(object sender, EventArgs e)
